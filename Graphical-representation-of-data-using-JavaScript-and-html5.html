@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+	<head></head>
+	<body>
+		<canvas id="myCanvas" width="600" height="500" style="background-color:lightgray;"></canvas>
+		<script>
+		    var x = 0; //x position of the bars
+			var y; //y position of the bars
+
+			var total = 0;
+			
+			
+			var canvas= document.getElementById('myCanvas');
+			var context = canvas.getContext('2d');
+			
+			var values = [180, 40, 400, 140, 67]; //array storing values to generate the bar chart 
+
+			for (var i = 0; i < values.length; i++){
+				total += values[i];
+			}
+			
+			
+			for (var i = 0; i < values.length - 1; i++){
+			
+			    y = 500 - values[i]; //aligning the bottom position of the bars
+				context.moveTo(x,y);
+			    x+= 100;
+				y = 500 - values[i+1];
+				context.lineTo(x,y);
+				context.stroke();
+			}
+		</script>
+	</body>
+</html>
+	
